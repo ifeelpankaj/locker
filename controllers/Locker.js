@@ -122,7 +122,7 @@ export const addPrivateDocs = asyncError(async (req, res, next) => {
   }
 
   req.body.images = imagesLinks;
-  req.body.user = "req.user._id";
+  req.body.user = req.user._id; ///adddded after hosting
 
   const privateDoc = await PrivateDoc.create(req.body);
 

@@ -27,7 +27,7 @@ export const updateUserRole = asyncError(async (req, res, next) => {
     role: req.body.role,
   };
 
-  await User.findByIdAndUpdate(req.params.id, newUserData, {
+  await User.findByIdAndUpdate(req.params._id, newUserData, {
     new: true,
     runValidators: true,
     useFindAndModify: false,
