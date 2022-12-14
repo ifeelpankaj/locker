@@ -1,6 +1,7 @@
 import { asyncError } from "../middlewares/errorMiddleware.js";
 import { Project } from "../models/Project.js";
 import ErrorHandler from "../utils/ErrorHandler.js";
+import cloudinary from "cloudinary";
 
 //add Project
 export const addProject = asyncError(async (req, res, next) => {

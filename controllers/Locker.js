@@ -2,6 +2,7 @@ import { asyncError } from "../middlewares/errorMiddleware.js";
 import { PrivateDoc } from "../models/PrivateDoc.js";
 import { PublicDoc } from "../models/PublicDoc.js";
 import ErrorHandler from "../utils/ErrorHandler.js";
+import cloudinary from "cloudinary";
 
 //add public docs
 export const addPublicDocs = asyncError(async (req, res, next) => {
