@@ -8,10 +8,7 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import cors from "cors";
 import bodyParser from "body-parser";
-import fs from 'fs';
-import multer from "multer";
 
-const upload = multer();
 
 const app = express();
 export default app;
@@ -53,6 +50,7 @@ app.use(
   cors({
     credentials: true,
     origin:process.env.FRONTEND_URL,
+    allowedHeaders: ['Content-Type', 'Authorization'],
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
