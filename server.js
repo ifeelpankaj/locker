@@ -8,6 +8,12 @@ cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
+
+  cors: {
+    allowed_headers: ['Content-Type', 'Authorization'],
+    exposed_headers: ['Content-Disposition'],
+    max_age: 600,
+  },
 });
 
 
