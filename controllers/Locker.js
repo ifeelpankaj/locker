@@ -60,16 +60,16 @@ export const getMyDocs = asyncError(async (req, res, next) => {
 // Docs detail
 
 export const getDocDetails = asyncError(async (req, res, next) => {
-  const myPublicDoc = await PublicDoc.findById(req.params.id).populate(
+  const publicDoc = await PublicDoc.findById(req.params.id).populate(
     "user",
     "name"
   );
 
-  if (!myPublicDoc) return next(new ErrorHandler("No Doc Found", 404));
+  if (!publicDoc) return next(new ErrorHandler("No Doc Found", 404));
 
   res.status(200).json({
     success: true,
-    myPublicDoc,
+    publicDoc,
   });
 });
 
