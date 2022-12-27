@@ -18,7 +18,7 @@ export const addProject = asyncError(async (req, res, next) => {
   for (let i = 0; i < resumes.length; i++) {
     const result = await cloudinary.v2.uploader.upload(resumes[i], {
       folder: "Projects",
-      resource_type: "raw",
+      resource_type: "auto",
     });
 
     resumesLinks.push({
