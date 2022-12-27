@@ -13,9 +13,9 @@ export const addPublicDocs = asyncError(async (req, res, next) => {
   
 
   if (typeof req.body.images === "string") {
-    images.push(`data:image/jpeg;base64,${req.body.images}`);
+    images.push(req.body.images);
   } else {
-    images = `data:image/jpeg;base64,${req.body.images}`;
+    images = req.body.images;
   }
 
   const imagesLinks = [];
