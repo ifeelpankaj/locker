@@ -10,11 +10,12 @@ import cloudinary from "cloudinary";
 //add public docs
 export const addPublicDocs = asyncError(async (req, res, next) => {
   let  images = [];
+  
 
   if (typeof req.body.images === "string") {
-    images.push(req.body.images);
+    images.push(`data:image/jpeg;base64,${req.body.images}`);
   } else {
-    images = req.body.images;
+    images = `data:image/jpeg;base64,${req.body.images}`;
   }
 
   const imagesLinks = [];
