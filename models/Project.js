@@ -1,36 +1,21 @@
 import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
-  projectName: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+  
+  projectName: String,
+  instaUserName: String,
+  contactNo: String,
+
   accessinglink: {
     type: String,
     required: true,
     unique: true,
   },
-  instaUserName: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  contactNo: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
+
   resumes: [
     {
-      public_id: {
-        type: String,
-        required: true,
-      },
-      url: {
-        type: String,
-        required: true,
-      },
+      public_id: String,
+      url: String,
     },
   ],
 
