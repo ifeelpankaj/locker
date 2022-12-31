@@ -1,23 +1,41 @@
 import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
-  
-  projectName: String,
+  aprojects: [
+    {
+      projectName: {
+        type: String,
+        required: true,
+      },
+      homepage: {
+        public_id: String,
+        url: String,
+      },
+      apinfo: {
+        type: String,
+        required: true,
+      },
+      accessinglink: {
+        type: String,
+        required: true,
+        // unique: true,
+      },
+      user: {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        required: true,
+      },
+    },
+  ],
+
+  bio: String,
   instaUserName: String,
   contactNo: String,
 
-  accessinglink: {
-    type: String,
-    required: true,
-    unique: true,
+  resumes: {
+    public_id: String,
+    url: String,
   },
-
-  resumes: [
-    {
-      public_id: String,
-      url: String,
-    },
-  ],
 
   user: {
     type: mongoose.Schema.ObjectId,

@@ -28,7 +28,7 @@ export const addProject = asyncError(async (req, res, next) => {
   }
 
   req.body.resumes = resumesLinks;
-  req.body.user = req.user._id;
+  req.body.user = "req.user._id";
 
   const project = await Project.create(req.body);
 
@@ -99,8 +99,7 @@ export const updateResume = asyncError(async (req, res, next) => {
     for (let i = 0; i < resumes.length; i++) {
       const result = await cloudinary.v2.uploader.upload(resumes[i], {
         folder: "Projects",
-        resource_type: "raw",
-        raw_convert: "aspose",
+        resource_type: "auto",
       });
 
       resumesLinks.push({
@@ -142,40 +141,5 @@ export const updateInsta = asyncError(async (req, res, next) => {
   });
 });
 
-//update Project Name
 
-export const updateProjectName = asyncError(async (req, res, next) => {
-  const newProjectName = {
-    projectName: req.body.projectName,
-  };
 
-  await Project.findByIdAndUpdate(req.params.id, newProjectName, {
-    new: true,
-    runValidators: true,
-    useFindAndModify: false,
-  });
-
-  res.status(200).json({
-    success: true,
-    newProjectName,
-  });
-});
-
-//update Project Name
-
-export const updateAccessingLink = asyncError(async (req, res, next) => {
-  const newAccessingLink = {
-    accessinglink: req.body.accessinglink,
-  };
-
-  await Project.findByIdAndUpdate(req.params.id, newAccessingLink, {
-    new: true,
-    runValidators: true,
-    useFindAndModify: false,
-  });
-
-  res.status(200).json({
-    success: true,
-    newAccessingLink,
-  });
-});

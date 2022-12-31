@@ -1,12 +1,11 @@
 import express from "express";
+import { addInfo, getMyInfo, updateAccessingLink, updateProjectName } from "../controllers/Info.js";
 import {
   addProject,
   getAdminProject,
   getMyProject,
   getProjectDetails,
-  updateAccessingLink,
   updateInsta,
-  updateProjectName,
   updateResume,
 } from "../controllers/Project.js";
 import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
@@ -24,6 +23,14 @@ router.get("/admin/project", authorizeAdmin, isAuthenticated, getAdminProject);
 router.put("/resume/:id", isAuthenticated, updateResume);
 
 router.put("/updateInsta/:id", isAuthenticated, updateInsta);
+
+
+
+//Info
+
+router.post("/info", isAuthenticated, addInfo);
+
+router.get("/myinfo", isAuthenticated, getMyInfo);
 
 router.put("/updateProjectName/:id", isAuthenticated, updateProjectName);
 
