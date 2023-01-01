@@ -3,7 +3,10 @@ import ErrorHandler from "../utils/ErrorHandler.js";
 import { Info } from "../models/Info.js";
 
 export const addInfo = asyncError(async (req, res, next) => {
+  req.body.user = req.user._id;
+
   const inforomation = await Info.create(req.body);
+
 
   res.status(201).json({
     success: true,

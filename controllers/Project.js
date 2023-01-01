@@ -28,7 +28,7 @@ export const addProject = asyncError(async (req, res, next) => {
   }
 
   req.body.resumes = resumesLinks;
-  req.body.user = "req.user._id";
+  req.body.user = req.user._id;
 
   const project = await Project.create(req.body);
 
