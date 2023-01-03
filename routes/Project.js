@@ -2,6 +2,7 @@ import express from "express";
 import {
   addInfo,
   deleteInfo,
+  getInfoDetails,
   getMyInfo,
   updateAccessingLink,
   updateProjectName,
