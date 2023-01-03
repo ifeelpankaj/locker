@@ -6,10 +6,19 @@ const schema = new mongoose.Schema({
   instaUserName: String,
   contactNo: String,
 
-  resumes: {
-    public_id: String,
-    url: String,
-  },
+  resumes: [
+  
+      {
+        public_id: {
+          type: String,
+          required: true,
+        },
+        url: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
 
   user: {
     type: mongoose.Schema.ObjectId,

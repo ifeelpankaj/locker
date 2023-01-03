@@ -7,10 +7,9 @@ export const addInfo = asyncError(async (req, res, next) => {
 
   const inforomation = await Info.create(req.body);
 
-
   res.status(201).json({
     success: true,
-    message: "Completed ",
+    message: "Completed",
     inforomation,
   });
 });
