@@ -77,6 +77,22 @@ export const getAdminProject = asyncError(async (req, res, next) => {
   });
 });
 
+//delete
+export const deleteProject = asyncError(async (req, res, next) => {
+  const project = await Project.findById(req.params.id);
+
+  if (!project) {
+    return next(new ErrorHandler("Error", 404));
+  }
+
+  await project.remove();
+
+  res.status(200).json({
+    success: true,
+  });
+});
+
+
 // Update Project
 export const updateProject = asyncError(async (req, res, next) => {
   

@@ -8,12 +8,12 @@ import {
 } from "../controllers/Info.js";
 import {
   addProject,
+  deleteProject,
   getAdminProject,
   getMyProject,
   getProjectDetails,
   updateInsta,
   updateProject,
-  updateResume,
 } from "../controllers/Project.js";
 import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
 
@@ -27,10 +27,11 @@ router.get("/myproject/:id", isAuthenticated, getProjectDetails);
 
 router.get("/admin/project", authorizeAdmin, isAuthenticated, getAdminProject);
 
-router.put("/resume/:id", isAuthenticated, updateResume);
-
 router.put("/updateInsta/:id", isAuthenticated, updateInsta);
 
+router.put("/updateProject/:id", isAuthenticated, updateProject);
+
+router.delete("/remove/:id", isAuthenticated, deleteProject);
 //Info
 
 router.post("/info", isAuthenticated, addInfo);
@@ -38,8 +39,6 @@ router.post("/info", isAuthenticated, addInfo);
 router.get("/myinfo", isAuthenticated, getMyInfo);
 
 router.get("/myinfo/:id", isAuthenticated, getInfoDetails);
-
-router.put("/updateProject/:id", isAuthenticated, updateProject);
 
 router.delete("/delete/:id", isAuthenticated, deleteInfo);
 
