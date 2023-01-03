@@ -41,6 +41,8 @@ export const getInfoDetails = asyncError(async (req, res, next) => {
 export const updateProjectName = asyncError(async (req, res, next) => {
   const newProjectName = {
     projectName: req.body.projectName,
+    pinfo:req.body.pinfo,
+    accessinglink:req.body.accessinglink,
   };
 
   await Info.findByIdAndUpdate(req.params.id, newProjectName, {
