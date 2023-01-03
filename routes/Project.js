@@ -1,5 +1,11 @@
 import express from "express";
-import { addInfo, getMyInfo, updateAccessingLink, updateProjectName } from "../controllers/Info.js";
+import {
+  addInfo,
+  deleteInfo,
+  getMyInfo,
+  updateAccessingLink,
+  updateProjectName,
+} from "../controllers/Info.js";
 import {
   addProject,
   getAdminProject,
@@ -24,15 +30,17 @@ router.put("/resume/:id", isAuthenticated, updateResume);
 
 router.put("/updateInsta/:id", isAuthenticated, updateInsta);
 
-
-
 //Info
 
 router.post("/info", isAuthenticated, addInfo);
 
 router.get("/myinfo", isAuthenticated, getMyInfo);
 
+router.get("/myinfo/:id", isAuthenticated, getInfoDetails);
+
 router.put("/updateProjectName/:id", isAuthenticated, updateProjectName);
+
+router.delete("/delete/:id", isAuthenticated, deleteInfo);
 
 router.put("/updateAccessingLink/:id", isAuthenticated, updateAccessingLink);
 

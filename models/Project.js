@@ -1,24 +1,22 @@
 import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
-
   bio: String,
   instaUserName: String,
   contactNo: String,
 
   resumes: [
-  
-      {
-        public_id: {
-          type: String,
-          required: true,
-        },
-        url: {
-          type: String,
-          required: true,
-        },
+    {
+      public_id: {
+        type: String,
+        required: true,
       },
-    ],
+      url: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 
   user: {
     type: mongoose.Schema.ObjectId,
