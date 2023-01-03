@@ -4,13 +4,9 @@ import { PublicDoc } from "../models/PublicDoc.js";
 import ErrorHandler from "../utils/ErrorHandler.js";
 import cloudinary from "cloudinary";
 
-
-
-
 //add public docs
 export const addPublicDocs = asyncError(async (req, res, next) => {
-  let  images = [];
-  
+  let images = [];
 
   if (typeof req.body.images === "string") {
     images.push(req.body.images);
@@ -20,11 +16,10 @@ export const addPublicDocs = asyncError(async (req, res, next) => {
 
   const imagesLinks = [];
 
-
   for (let i = 0; i < images.length; i++) {
     const result = await cloudinary.v2.uploader.upload(images[i], {
       folder: "Document",
-      resource_type: 'image',
+      resource_type: "image",
     });
 
     imagesLinks.push({
