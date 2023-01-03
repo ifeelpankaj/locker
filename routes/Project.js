@@ -5,7 +5,6 @@ import {
   getInfoDetails,
   getMyInfo,
   updateAccessingLink,
-  updateProjectName,
 } from "../controllers/Info.js";
 import {
   addProject,
@@ -13,6 +12,7 @@ import {
   getMyProject,
   getProjectDetails,
   updateInsta,
+  updateProject,
   updateResume,
 } from "../controllers/Project.js";
 import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
@@ -39,7 +39,7 @@ router.get("/myinfo", isAuthenticated, getMyInfo);
 
 router.get("/myinfo/:id", isAuthenticated, getInfoDetails);
 
-router.put("/updateProjectName/:id", isAuthenticated, updateProjectName);
+router.put("/updateProject/:id", isAuthenticated, updateProject);
 
 router.delete("/delete/:id", isAuthenticated, deleteInfo);
 

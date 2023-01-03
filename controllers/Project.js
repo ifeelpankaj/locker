@@ -77,8 +77,14 @@ export const getAdminProject = asyncError(async (req, res, next) => {
   });
 });
 
-// update resume
-export const updateResume = asyncError(async (req, res, next) => {
+// Update Project
+export const updateProject = asyncError(async (req, res, next) => {
+  
+  let project = await Project.findById(req.params.id);
+
+  if (!project) {
+    return next(new ErrorHandler("Notting found", 404));
+  }
   // Images Start Here
   let resumes = [];
 
@@ -111,7 +117,7 @@ export const updateResume = asyncError(async (req, res, next) => {
     req.body.resumes = resumesLinks;
   }
 
-  resumes = await Project.findByIdAndUpdate(req.params.id, req.body, {
+  project = await Project.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
     useFindAndModify: false,
@@ -119,7 +125,7 @@ export const updateResume = asyncError(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    resumes,
+    project,
   });
 });
 
