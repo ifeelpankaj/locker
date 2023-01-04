@@ -112,8 +112,8 @@ export const updateProject = asyncError(async (req, res, next) => {
 
   if (resumes !== undefined) {
     // Deleting Images From Cloudinary
-    for (let i = 0; i < resumes.length; i++) {
-      await cloudinary.v2.uploader.destroy(resumes[i].public_id);
+    for (let i = 0; i < project.resumes.length; i++) {
+      await cloudinary.v2.uploader.destroy(project.resumes[i].public_id);
     }
 
     const resumesLinks = [];
