@@ -66,14 +66,14 @@ connectPassport();
 import userRoute from "./routes/User.js";
 import lockerRoute from "./routes/Locker.js";
 import projectRoute from "./routes/Project.js";
-// import courseRoute from './routes/Course.js';
+import textRoute from './routes/TextFile.js';
 // import jobRoute from './routes/Job.js';
 // import queRoute from './routes/Qura.js';
 
 app.use("/port/v1", userRoute);
 app.use("/port/v1", lockerRoute);
 app.use("/port/v1", projectRoute);
-// app.use("/acc/v1", courseRoute);
+app.use("/port/v1", textRoute);
 // app.use("/acc/v1", jobRoute);
 // app.use("/acc/v1", queRoute);
 
