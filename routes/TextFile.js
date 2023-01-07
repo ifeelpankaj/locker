@@ -11,9 +11,9 @@ router.get("/txt",isAuthenticated,getTextFile);
 
 router.get("/txt/:id",isAuthenticated,getTextFileDetail);
 
-router.get("/txt/:id",isAuthenticated,getTextFileDetail);
+router.put("/txt/:id",isAuthenticated,updateTextFile);
 
-router.delete("/txt/:id",isAuthenticated,updateTextFile);
+router.delete("/txt/:id",isAuthenticated,deleteTextFile);
 
 
 
