@@ -8,7 +8,7 @@ const router = express.Router();
 router.get(
   "/googlelogin",
   passport.authenticate("google", {
-    scope: ["profile" ,"https://www.googleapis.com/auth/drive.file"  ],
+    scope: ["profile"   ],
   })
 );
 
