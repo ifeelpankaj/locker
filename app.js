@@ -8,7 +8,6 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import cors from "cors";
 import bodyParser from "body-parser";
-import cookieSession from "cookie-session";
 
 const app = express();
 export default app;
@@ -26,6 +25,7 @@ app.use(
     saveUninitialized: false,
 
     cookie: {
+      maxAge: 1000 * 60 * 60 * 2, // 1000ms * 60s * 60min * 2hrs
       secure: process.env.NODE_ENV === "development" ? false : true,
       httpOnly: process.env.NODE_ENV === "development" ? false : true,
       sameSite: process.env.NODE_ENV === "development" ? false : "none",
@@ -55,10 +55,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 
-app.use(cookieSession({
-  maxAge: 2*60*60*1000,
-  keys:[process.env.COOKIE_KEY]
-}));
+
 app.use(passport.authenticate("session"));
 app.use(passport.initialize());
 app.use(passport.session());
