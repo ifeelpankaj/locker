@@ -5,6 +5,7 @@ import {
   getInfoDetails,
   getMyInfo,
   updateAccessingLink,
+  updateProjectName,
 } from "../controllers/Info.js";
 import {
   addProject,
@@ -12,8 +13,7 @@ import {
   getAdminProject,
   getMyProject,
   getProjectDetails,
-  updateInsta,
-  updateProject,
+  updateInfo,
 } from "../controllers/Project.js";
 import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
 
@@ -27,9 +27,9 @@ router.get("/myproject/:id", isAuthenticated, getProjectDetails);
 
 router.get("/admin/project", authorizeAdmin, isAuthenticated, getAdminProject);
 
-router.put("/updateInsta/:id", isAuthenticated, updateInsta);
+router.put("/updateProject/:id", isAuthenticated, updateProjectName);
 
-router.put("/updateProject/:id", isAuthenticated, updateProject);
+router.put("/info/:id", isAuthenticated, updateInfo);
 
 router.delete("/remove/:id", isAuthenticated, deleteProject);
 //Info

@@ -94,7 +94,7 @@ export const deleteProject = asyncError(async (req, res, next) => {
 
 
 // Update Project
-export const updateProject = asyncError(async (req, res, next) => {
+export const updateInfo = asyncError(async (req, res, next) => {
   
  
   let project = await Project.findById(req.params.id);
@@ -134,13 +134,7 @@ export const updateProject = asyncError(async (req, res, next) => {
     req.body.resumes = resumesLinks;
   }
 
-  const newone ={
-    bio:req.body.bio,
-    contactNo:req.body.contactNo,
-    instaUserName:req.body.instaUserName,
-    resumes:req.body.resumes
-  }
-  await Project.findByIdAndUpdate(req.params.id, newone, {
+  project = await Project.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
     useFindAndModify: false,
@@ -148,7 +142,7 @@ export const updateProject = asyncError(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    newone,
+    project,
   });
 });
 
