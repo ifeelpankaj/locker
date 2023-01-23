@@ -1,9 +1,18 @@
 import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
-  bio: String,
-  instaUserName: String,
-  contactNo: String,
+  bio:{
+    type: String,
+    required: true,
+  },
+  instaUserName: {
+    type: String,
+    required: true,
+  },
+  contactNo: {
+    type: Number,
+    required: true,
+  },
 
   resumes: [
     {
