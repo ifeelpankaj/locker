@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  
   instaUserName: {
     type: String,
     required: true,
