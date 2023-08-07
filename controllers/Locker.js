@@ -5,6 +5,7 @@ import ErrorHandler from "../utils/ErrorHandler.js";
 import cloudinary from "cloudinary";
 
 //add public docs
+
 export const addPublicDocs = asyncError(async (req, res, next) => {
   let images = [];
 
